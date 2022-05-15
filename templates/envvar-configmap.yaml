@@ -3,7 +3,6 @@ kind: ConfigMap
 metadata:
   name: {{ .Chart.Name }}-envvars
 data:
-#  RUNSCRIPT: "sleep infinity"
   #LOGGING_LEVEL_ROOT: "DEBUG"
   #RUNSCRIPT: "sleep infinity"
   JAVA_TOOL_OPTIONS: "-Djava.security.egd=file:/dev/./urandom -XX:MaxRAMFraction=2 -Dspring.cloud.config.application.name=netflix-api-gateway"
