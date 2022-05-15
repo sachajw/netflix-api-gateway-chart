@@ -13,7 +13,7 @@ netflix-generic-microservice:
   stages:
     dev:
       account: infra
-    uat:
+    test:
       account: nonprod
     prod:
       account: prod

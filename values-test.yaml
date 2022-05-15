@@ -1,5 +1,5 @@
 netflix-generic-microservice:
-  stage: uat
+  stage: test
   imageVersion: 2022.0426.190353
   deploymentVersion: 1.0.1
   memoryRequest: 256M
@@ -9,7 +9,7 @@ netflix-generic-microservice:
   vault:
     enabled: true
     secrets:
-      - name: superadmin/netflix-uat-mysql
+      - name: superadmin/netflix-test-mysql
         keys:
           - key: username
             envvarName: DB_USERNAME
@@ -20,7 +20,7 @@ profiles:
   active: "uat,mysql,email"
 
 config:
-  uri: "https://netflix-config-server-netflix-uat.netflix-uat.ec1.aws.cloud/"
+  uri: "https://netflix-config-server-netflix-test.netflix-test.ec1.aws.cloud/"
   label: "main"
 
 spring:
