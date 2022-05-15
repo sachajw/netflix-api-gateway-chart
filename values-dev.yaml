@@ -1,0 +1,17 @@
+netflix-generic-microservice:
+  stage: test
+  imageVersion: 2022.0426.190353
+  deploymentVersion: 1.0.1
+  memoryRequest: 256M
+  memoryLimit: 1G
+  CPURequest: 100m
+  CPULimit: 300m
+  vault:
+    enabled: true
+    secrets:
+      - name: superadmin/netflix-test-mysql
+        keys:
+          - key: username
+            envvarName: DB_USERNAME
+          - key: password
+            envvarName: DB_PASSWORD
