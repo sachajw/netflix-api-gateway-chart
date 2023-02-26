@@ -1,0 +1,19 @@
+netflix-generic-microservice:
+  capability: netflix
+  appName: netflix-api-gateway
+  port: 8080
+  configMapRef:
+    - netflix-api-gateway-envvars
+  readinessProbe:
+    enabled: false
+  livenessProbe:
+    enabled: false
+  istio:
+    enabled: true
+  stages:
+    dev:
+      account: infra
+    test:
+      account: nonprod
+    prod:
+      account: prod

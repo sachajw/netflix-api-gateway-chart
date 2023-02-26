@@ -1,0 +1,34 @@
+netflix-generic-microservice:
+  stage: dev
+  imageVersion: 2022.0426.190353
+  deploymentVersion: 1.0.1
+  memoryRequest: 256M
+  memoryLimit: 1G
+  CPURequest: 100m
+  CPULimit: 300m
+  vault:
+    enabled: true
+    secrets:
+      - name: superadmin/netflix-dev-mysql
+        keys:
+          - key: username
+            envvarName: DB_USERNAME
+          - key: password
+            envvarName: DB_PASSWORD
+
+profiles:
+  active: "dev,mysql,email"
+
+config:
+  uri: "https://netflix-config-server-netflix-dev.netflix-dev.ec1.aws.cloud/"
+  label: "main"
+
+spring:
+  rabbitmq:
+    host: "z-348hjdf48u-90lk2-asd8s-9034578-daflksgj98agc.mq.eu-central-1.amazonaws.com"
+    port: 5671
+    ssl:
+      enabled: true
+      algorithm: "TLSv1.2"
+    username: "${MQ_USERNAME}"
+    password: "${MQ_PASSWORD}"

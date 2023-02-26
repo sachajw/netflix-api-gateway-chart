@@ -1,0 +1,10 @@
+apiVersion: v2
+name: "neflix-api-gateway"
+description: "A Helm chart to for Netflix API Gateway"
+type: "application"
+version: 1.0.1
+appVersion: 1.0.1
+dependencies:
+  - name: "netflix-generic-microservice"
+    version: 1.28.1
+    repository: "@generic"

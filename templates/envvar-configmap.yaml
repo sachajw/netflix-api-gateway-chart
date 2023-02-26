@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Chart.Name }}-envvars
+data:
+  #LOGGING_LEVEL_ROOT: "DEBUG"
+  #RUNSCRIPT: "sleep infinity"
+  JAVA_TOOL_OPTIONS: "-Djava.security.egd=file:/dev/./urandom -XX:MaxRAMFraction=2 -Dspring.cloud.config.application.name=netflix-api-gateway"
+  SPRING_CLOUD_CONFIG_URI: {{ .Values.config.uri | quote }}
+  SPRING_CLOUD_CONFIG_LABEL: {{ .Values.config.label | quote }}
+  SPRING_PROFILES_ACTIVE: {{ .Values.profiles.active | quote }}
+  SPRING_RABBITMQ_HOST: {{ .Values.spring.rabbitmq.host | quote }}
+  SPRING_RABBITMQ_PORT: {{ .Values.spring.rabbitmq.port | quote }}
+  SPRING_RABBITMQ_SSL_ENABLED: {{ .Values.spring.rabbitmq.ssl.enabled | quote }}
+  SPRING_RABBITMQ_SSL_ALGORITHM: {{ .Values.spring.rabbitmq.ssl.algorithm | quote }}
+  SPRING_RABBITMQ_USERNAME: {{ .Values.spring.rabbitmq.username | quote }}
+  SPRING_RABBITMQ_PASSWORD: {{ .Values.spring.rabbitmq.password | quote }}
